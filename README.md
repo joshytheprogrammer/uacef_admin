@@ -26,7 +26,7 @@ To set up the UACEF Admin Section locally, follow these steps:
 1. Clone this repository to your local machine using:
 
    ```bash
-   git clone https://github.com/your-username/uacef-admin.git
+   git clone https://github.com/joshytheprogrammer/uacef-admin.git
    ```
 
 2. Install project dependencies using:
