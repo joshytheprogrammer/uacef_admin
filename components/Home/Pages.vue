@@ -32,7 +32,7 @@ export default {
         {
           id: 2,
           title: 'View all images',
-          link: '/view/images'
+          link: '/view/gallery'
         },
         {
           id: 3,

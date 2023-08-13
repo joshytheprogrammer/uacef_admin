@@ -15,18 +15,18 @@
         Home
       </b-navbar-item>
       <b-navbar-dropdown label="Create">
-        <b-navbar-item href="/create/banner">
+        <b-navbar-item href="/create/image">
           Images
         </b-navbar-item>
-        <b-navbar-item href="/create/product">
+        <b-navbar-item href="/create/clip">
           Clips
         </b-navbar-item>
       </b-navbar-dropdown>
       <b-navbar-dropdown label="View">
-        <b-navbar-item href="/view/banner">
+        <b-navbar-item href="/view/gallery">
           Images
         </b-navbar-item>
-        <b-navbar-item href="/view/product">
+        <b-navbar-item href="/view/clips">
           Clips
         </b-navbar-item>
       </b-navbar-dropdown>
