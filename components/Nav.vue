@@ -1,8 +1,12 @@
 <template>
-  <b-navbar fixed-top>
+  <b-navbar spaced fixed-top>
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <img src="@/static/uacef_logo.jpg" alt="UACEF logo">
+        <b-image
+            :src="require('@/static/uacef_logo.jpg')"
+            alt="UACEFLogo"
+            :rounded="false"
+        ></b-image>
         <span class="title has-text-primary">UACEF Portal</span>
       </b-navbar-item>
     </template>
@@ -15,6 +19,14 @@
           Images
         </b-navbar-item>
         <b-navbar-item href="/create/product">
+          Clips
+        </b-navbar-item>
+      </b-navbar-dropdown>
+      <b-navbar-dropdown label="View">
+        <b-navbar-item href="/view/banner">
+          Images
+        </b-navbar-item>
+        <b-navbar-item href="/view/product">
           Clips
         </b-navbar-item>
       </b-navbar-dropdown>
