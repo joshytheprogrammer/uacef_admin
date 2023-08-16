@@ -19,6 +19,7 @@
       </b-field>
       <b-button native-type="submit" type="is-primary" :loading="loading">Submit</b-button>
     </form>
+    <p>Want to confirm your uploads? <NuxtLink to="/view/clips">View Clips</NuxtLink></p>
   </section>
 </template>
 
@@ -38,44 +39,46 @@ export default {
     async submit() {
       this.loading = true;
 
-      // Extract YouTube video ID from the URL
-      const videoId = this.extractVideoId(this.clip.url);
+      try {
+        // Extract YouTube video ID from the URL
+        const videoId = this.extractVideoId(this.clip.url);
 
-      if (!videoId) {
-        this.$buefy.snackbar.open({
-          duration: 5000,
-          message: "Invalid YouTube URL. Please enter a valid YouTube video URL.",
-          type: "is-danger",
-        });
-
-        this.loading = false;
-        return;
-      }
-
-      await this.$fire.firestore
-        .collection("clip")
-        .add({
-          videoID: videoId,
-          active: this.clip.active,
-        })
-        .then((docRef) => {
-          this.$buefy.snackbar.open({
-            duration: 10000,
-            message: `Clip created with ID - ${docRef.id} `,
-            type: "is-success",
-          });
-
-          this.$router.push("/view/clips");
-        })
-        .catch((error) => {
+        if (!videoId) {
           this.$buefy.snackbar.open({
             duration: 5000,
-            message: `Something went wrong - ${error}`,
+            message: "Invalid YouTube URL. Please enter a valid YouTube video URL.",
             type: "is-danger",
           });
 
           this.loading = false;
+          return;
+        }
+
+        await this.$fire.firestore
+          .collection("clip")
+          .add({
+            videoID: videoId,
+            active: this.clip.active,
+          })
+          .then((docRef) => {
+            this.$buefy.snackbar.open({
+              duration: 10000,
+              message: `Clip created with ID - ${docRef.id} `,
+              type: "is-success",
+            });
+
+            // this.$router.push("/view/clips");
+            this.clip.url = ''
+          })
+      } catch (error) {
+        this.$buefy.snackbar.open({
+          duration: 5000,
+          message: `Something went wrong - ${error}`,
+          type: "is-danger",
         });
+      }finally {
+        this.loading = false
+      }
     },
 
     extractVideoId(url) {
@@ -104,6 +107,11 @@ section {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px);
+
+  p {
+    margin: 1rem 0;
+    text-align: left;
+  }
 
   @media screen and (max-width: $medium) {
     max-width: 90%;

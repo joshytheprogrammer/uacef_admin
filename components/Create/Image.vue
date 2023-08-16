@@ -125,8 +125,8 @@ section {
   backdrop-filter: blur(2px);
 
   p {
-    margin: 1rem;
-    text-align: center;
+    margin: 1rem 0;
+    text-align: left;
   }
 
   @media screen and (max-width: $medium) {
