@@ -6,16 +6,19 @@
       </template>
     </Headers>
     <div class="image-gallery">
-      <div v-for="image in images" :key="image.id" class="card">
-        <div class="card-content">
-          <img :src="image.imgLink" alt="Gallery Image" />
-          <button class="toggle-button" @click="toggleShowImage(image)">{{ image.active ? 'Hide' : 'Show' }}</button>
-        </div>
+      <div v-if="!isLoading && images.length > 0" class="card-grid">
+        <figure class="image-card" v-for="item in images" :key="item.id">
+          <img class="rounded-xl w-full" :src="item.imgLink" :alt="'img - ' + item.id" />
+          <button class="toggle-button" @click="toggleShowImage(item)">{{ item.active ? 'Hide' : 'Show' }}</button>
+        </figure>
+      </div>
+      <div v-else class="loading-placeholder">
+        <b-loading v-model="isLoading" :can-cancel="false"></b-loading>
       </div>
     </div>
-    <b-loading v-model="isLoading" :can-cancel="false"></b-loading>
   </section>
 </template>
+
 
 <script>
 import Headers from '~/components/Headers.vue';
@@ -78,6 +81,13 @@ section {
 }
 
 .image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 2rem;
@@ -85,26 +95,45 @@ section {
   margin-top: 2rem;
 }
 
-.card-content {
-  position: relative;
-  padding: 0;
+.image-card {
+  width: 100%;
+  height: fit-content;
+  // padding: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border: 2px solid #ccc;
+  // border-radius: 12px;
+  display: inline-block;
+  transition: border-color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #800080;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border: none;
+    // border-radius: 12px;
+  }
 }
 
 
-img {
-  width: 100%;
-  height: auto;
-  border: none;
+.loading-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* You can adjust the height */
 }
 
 .toggle-button {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
   background-color: $primary;
   color: #ffffff;
   border: none;
   border-radius: 4px;
+  margin: 1rem;
   padding: 0.5rem 1rem;
   font-weight: normal;
   cursor: pointer;
@@ -112,7 +141,7 @@ img {
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 768px) {
-  .image-gallery {
+  .card-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
