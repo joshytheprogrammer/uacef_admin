@@ -3,7 +3,7 @@
     <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
       <section :class="`hero is-medium is-${carousel.color}`">
         <div class="hero-body has-text-centered">
-          <h1 class="title">{{carousel.text}}</h1>
+          <h1 class=" is-size-4 ">{{ carousel.text }}</h1>
         </div>
       </section>
     </b-carousel-item>
@@ -20,8 +20,9 @@ export default {
         { text: 'Effortlessly view and toggle visibility of your media content. 👀', color: 'info' },
         { text: 'Navigate swiftly through the Quick Actions panel below. 🚀', color: 'info' },
         { text: 'Wishing you a delightful experience! 🌟', color: 'primary' }
-      ]
+      ],
+      isMobile: true
     }
-  }
+  },
 }
 </script>

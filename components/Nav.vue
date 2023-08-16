@@ -1,12 +1,8 @@
 <template>
-  <b-navbar fixed-top>
+  <b-navbar spaced fixed-top>
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <b-image
-            :src="require('@/static/uacef_logo.jpg')"
-            alt="UACEFLogo"
-            :rounded="false"
-        ></b-image>
+        <img width="36px" src="@/static/uacef_logo.jpg" alt="">
         <span class="title has-text-primary">UACEF Portal</span>
       </b-navbar-item>
     </template>
