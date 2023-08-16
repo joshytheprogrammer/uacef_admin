@@ -15,11 +15,11 @@ export default {
   data(){
     return {
       carousels: [
-        { text: 'Welcome back 👋', color: 'primary' },
-        { text: 'Slide 2', color: 'info' },
-        { text: 'Slide 3', color: 'success' },
-        { text: 'Slide 4', color: 'warning' },
-        { text: 'Slide 5', color: 'danger' }
+        { text: 'Welcome back! 👋 Explore the UACEF Admin Portal once more.', color: 'primary' },
+        { text: 'Craft and Modify Clips and Images with ease. 🖼️', color: 'info' },
+        { text: 'Effortlessly view and toggle visibility of your media content. 👀', color: 'info' },
+        { text: 'Navigate swiftly through the Quick Actions panel below. 🚀', color: 'info' },
+        { text: 'Wishing you a delightful experience! 🌟', color: 'primary' }
       ]
     }
   }

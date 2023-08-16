@@ -81,15 +81,15 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      name: 'Admin Portal',
-      short_name: 'UACEF',
+      name: 'UACEF Portal',
+      short_name: 'Portal',
       description: 'Manage the UACEF website',
       lang: 'en',
-      background_color: '#581C87',
+      background_color: '#000f64',
       theme_color: '#581C87'
     },
     icon: {
-      fileName: 'icon.png',
+      fileName: 'uacef_logo.jpg',
       sizes: [64, 120, 144, 12, 192, 384, 512]
     }
   },

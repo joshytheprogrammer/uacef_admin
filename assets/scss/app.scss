@@ -18,7 +18,7 @@ $light: #FFF;
 $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
+$twitter: #000f64;
 $twitter-invert: findColorInvert($twitter);
 
 // Lists and maps
@@ -57,7 +57,7 @@ $colors: mergeColorMaps(
             $link-dark,
         ),
         "info": (
-            $info,
+          #000f64,
             $info-invert,
             $info-light,
             $info-dark,
