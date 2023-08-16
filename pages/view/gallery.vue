@@ -106,7 +106,7 @@ section {
   // border-radius: 12px;
   display: inline-block;
   transition: border-color 0.3s ease-in-out;
-  cursor: pointer;
+  // cursor: pointer;
 
   &:hover {
     border-color: #800080;
